@@ -1,11 +1,4 @@
----
-layout: post
-title:  "Restfull Issue Tracking Application With Spring Boot and AngularJs"
-date:   2016-09-09 20:30:20 +0300
-fontcolor: eee
-backimage: images/banner-13.jpg
-visible: true
----
+# Restfull Issue Tracking Application With Spring Boot and AngularJs
 
 In this tutorial I'm going to create a Restful Service Application with spring-boot, spring-jpa, hsqldb, AngularJs.
 
