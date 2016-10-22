@@ -2,8 +2,6 @@
 
 In this tutorial I'm going to create a Restful Service Application with spring-boot, spring-jpa, hsqldb, AngularJs.
 
-You can download the source from [Github](https://github.com/fsonmezay/restapi-issue-tracker).
-
 [Maven](https://maven.apache.org/) is the only requirement for this tutorial. You may also want to use an IDE like [Eclipse](http://eclipse.org/downloads/). Currently I have `Eclipse Neon for Java EE Developers`
 
 **Outline**
