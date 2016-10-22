@@ -1,0 +1,56 @@
+<div data-ng-controller="StoriesController">
+	<ol class="breadcrumb">
+	  <li><a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+	  <li><a href="#/story">Stories</a></li>
+	  <li class="active">{{detailStory.title }}</li>
+	</ol>
+
+	<div stype="margin:20px;">
+	  <div class="col-md-7 white-background">
+	    <h3>{{detailStory.title}}</h3>
+	    <p>{{detailStory.description}}</p>
+	  </div>
+	  
+	  <div class="col-md-1">&nbsp;</div>
+	  <div class="col-md-4 white-background">
+      <div class="row">
+        <table class="table">
+          <tr>
+            <td>Issue-ID</td>
+            <td>{{ detailStory.id }}</td>
+          </tr>
+          
+          <tr>
+            <td>Assignee</td>
+            <td>
+              <span ng-if="detailStory.developerId" ng-repeat="developer in developers | filter:{'id':detailStory.developerId}:true">{{ developer.name }}</span>
+              <span ng-if="!detailStory.developerId" style="color:#a00"> Not Assigned</span>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Estimated Point</td>
+            <td>{{ detailStory.point }}</td>
+          </tr>
+
+          <tr>
+            <td>State</td>
+            <td>{{ statuses[detailStory.status] }}</td>
+          </tr>
+          
+          <tr>
+            <td>Created on</td>
+            <td>{{ detailStory.creationDate | date:"dd/MM/yyyy 'at' HH:mm:ss"  }}</td>
+          </tr>
+          
+          <tr>
+            <td>Assigned Week: </td>
+            <td>{{ detailStory.assignedWeek }}</td>
+          </tr>
+        </table>
+        
+      </div>
+      
+	  </div>
+	</div>
+</div>

@@ -1,0 +1,86 @@
+<ol class="breadcrumb">
+  <li><a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+  <li class="active">Bugs</li>
+</ol>
+
+<div class="row" data-ng-controller="BugsController">
+  <div class="col-md-8">
+    <h4>Bugs</h4>
+    <div class="white-background" style="padding:15px;">
+	    <table class="table table-hover table-condensed">
+	      <thead>
+	        <tr>
+	          <th>#</th>
+	          <th>Name</th>
+	          <th>Priority</th>
+	          <th>State</th>
+	          <th>Developer</th>
+	          <th>Edit</th>
+	         </tr>
+	      </thead> 
+	      <tbody>
+	        <tr ng-repeat="bugItem in bugs" ng-class="(bugItem.id == currentBug.id) ? 'warning' : ''">
+	          <td>{{bugItem.id}}</td>
+	          <td width="25%"><a ng-href="#/bug/{{bugItem.id}}">{{ bugItem.title }}</a></td>
+	          <td>{{ priorities[bugItem.priority] }}</td>
+	          <td>{{ statuses[bugItem.status] }}</td>
+	          <td ng-if="bugItem.developerId" ng-repeat="developer in developers | filter:{'id':bugItem.developerId}:true">{{ developer.name }}</td>
+            <td ng-if="!bugItem.developerId"><span style="color:#a00"> Not Assigned </span></td>
+		        <td  width="5%" style="text-align:center;">
+	            <a class="btn btn-xs btn-success" ng-click="selectBug(bugItem)"><i class="fa fa-pencil-square-o "></i></a>
+		        </td> 
+	         </tr>        
+	      </tbody>
+	    </table>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <h4 style="color:#B80D57;">{{actionName}}</h4>
+    <div class="white-background" style="padding:20px;">
+    <form name="bugForm" ng-submit="submit()" method="POST">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="control-label" for="title">Title</label>
+            <input value="" name="title" id="title" type="text" ng-model="bug.title" class="form-control">
+          </div>
+        
+          <div class="form-group">
+            <label class="control-label" for="desciption">Description</label>
+            <textarea ng-maxlength="200" class="form-control" name="desciption" id="desciption" ng-model="bug.description"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label" for="developer">Developer</label>
+            <select name="developer" class="form-control" ng-model="bug.developerId">
+              <option ng-repeat="developer in developers" ng-selected="currentBug.developerId == developer.id" value="{{developer.id}}">{{developer.name}}</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label" for="priority">Priority</label>
+            <select name="priority" class="form-control" ng-model="bug.priority">
+              <option ng-repeat="(key, value) in priorities" ng-selected="currentBug.priority == key" value="{{key}}">{{value}}</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="control-label" for="status">State</label>
+            <select name="status" class="form-control" ng-model="bug.status">
+              <option ng-repeat="(key, value) in statuses" ng-selected="currentBug.status == key" value="{{key}}">{{value}}</option>
+            </select>
+          </div>
+        </div>
+                
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <input class="btn btn-success btn-sm" type="submit" id="submit" value="{{submitButtonLabel}}" />
+          <a ng-if="currentBug.id" ng-click="delete(currentBug.id)" class="btn btn-danger btn-sm">Delete</a>
+          <a ng-if="currentBug.id" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</a>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div data-ng-controller="IssueAssignmentController">
+	<ol class="breadcrumb">
+	  <li><a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+	  <li class="active">Issue Assignment</li>
+	</ol>
+	
+	<div class="row" stype="margin:20px;">
+    <div class="col-md-5 white-background" style="padding:30px;">
+	    <h3>Summary for assignment</h3>
+	    <table class="table">
+	      <tr ng-repeat="var in assignmentVariables"><td>{{var}}</td></tr>
+	    </table>	    
+	    <hr/>
+	    <a ng-click="makeAssignment()" class="btn btn-info btn-sm">Make Auto Assignment</a>
+    </div>
+    <div class="col-md-1"></div>
+    <div ng-if="assignmentResult" class="col-md-6 white-background" style="padding:30px;">
+	    <h3 class="text-center">Assignments</h3>
+      <div ng-repeat="(key, value) in assignmentResult">
+        <h5 style="color:#EA648D">Week #{{key}}</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Issue-ID</th>
+              <th>Story</th>
+              <th>Developer</th>
+              <th>Story Points</th>
+            </tr>
+          </thead>
+          <tr ng-repeat="story in value">
+            <td>{{story.id}}</td>
+            <td><a ng-href="#/story/{{story.id}}">{{story.title}}</a></td>
+            <td><span ng-repeat="developer in developers | filter:{'id':story.developerId}:true">{{ developer.name }}</span></td>
+            <td>{{story.point}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+	</div>
+	
+</div>
