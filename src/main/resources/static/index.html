@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="restapp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
 
     <script type="text/javascript" src="./js/angular.min.js"></script>
     <script type="text/javascript" src="./js/angular-route.js"></script>
+    <script type="text/javascript" src="./js/restapp.js"></script>
 
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
@@ -78,8 +79,8 @@
     <div class="page-wrap" id="page-wrap">
       <div class="container">
         <div class="page-content">
-          <div class="wrapper">
-            Content will be displayed here
+          <div class="wrapper" ng-controller="MainController">
+            <ng-view></ng-view>
           </div>
         </div>
       </div>
