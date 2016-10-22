@@ -340,7 +340,7 @@ I will call this file `main.html` and I'll save it into `static/partials/ `folde
 
 now we can run our application `mvn spring-boot:run` and you should see this screen below.
 
-<img src="/images/restapi-screen-1.png" class="img-responsive center-block" style="padding:10px; border: #ccc 1px solid; background-color:#fff; width:100%">
+<img src="http://ferdisonmezay.com/images/restapi-screen-1.png" class="img-responsive center-block" style="padding:10px; border: #ccc 1px solid; background-color:#fff; width:100%">
 
 Here is third [commit](https://github.com/fsonmezay/restapi-issue-tracker/commit/5b235531b220739ac0062a9f5355bc14bb42437d) for adding AngularJs to the project.
 
@@ -687,7 +687,7 @@ Finally add an html file in partials folder called `developers.html` to display 
 
 After the latest changes, when you click on "DEVELOPERS" link, you should be seeing the screen below.
 
-<img src="/images/restapi-screen-2.png" class="img-responsive center-block" style="padding:10px; border: #ccc 1px solid; background-color:#fff; width:100%">
+<img src="http://ferdisonmezay.com/images/restapi-screen-2.png" class="img-responsive center-block" style="padding:10px; border: #ccc 1px solid; background-color:#fff; width:100%">
 
 Here is next,  [commit](https://github.com/fsonmezay/restapi-issue-tracker/commit/6fdb1224f1b02b72a7748f90f2b0084dd05d2935) for adding developer crud operations.
 
