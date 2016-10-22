@@ -691,6 +691,16 @@ After the latest changes, when you click on "DEVELOPERS" link, you should be see
 
 Here is next,  [commit](https://github.com/fsonmezay/restapi-issue-tracker/commit/6fdb1224f1b02b72a7748f90f2b0084dd05d2935) for adding developer crud operations.
 
+### Swagger Rest API Documentation
+
+You can view API documentation and test the API by swagger-ui, which you can access from : [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) after you run the application.
+
+### Data Initialization and Storage
+
+Initial data are loaded into application from `import.sql` file. This application uses `HSQLDB` as database, when you start the application, all scripts from the specified file are executed, and data is imported to the application.
+
+**Note**: When you stop the application, data that you inserted using the UI will be lost.
+
 
 ### Summary
 In this tutorial I've created a spring boot application, and explained how to create a java web application with Spring framework and AngularJs.
