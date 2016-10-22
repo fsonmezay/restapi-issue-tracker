@@ -1,0 +1,53 @@
+<ol class="breadcrumb">
+  <li><a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+  <li class="active">Developers</li>
+</ol>
+
+<div class="row" data-ng-controller="DevelopersController">
+  <div class="col-md-6">
+    <h4 class="text-center">Developers</h4>
+    <div class="white-background" style="padding:15px;">
+	    <table class="table table-hover table-condensed">
+	      <thead>
+	        <tr>
+	          <th>#</th>
+	          <th>Name</th>
+	          <th>Actions</th>
+	         </tr>
+	      </thead>
+	      <tbody>
+	        <tr ng-repeat="developer in developers" ng-class="(developer.id == currentDeveloper.id) ? 'warning' : ''">
+	          <td></td>
+	          <td width="80%"></td>
+		        <td  width="5%" style="text-align:center;">
+	            <a class="btn btn-xs btn-success" ng-click="selectDeveloper(developer)"><i class="fa fa-pencil-square-o "></i></a>
+		        </td>
+	         </tr>        
+	      </tbody>
+	    </table>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <h4 style="color:#B80D57;"></h4>
+    <div class="white-background" style="padding:20px;">
+    <form name="developerForm" ng-submit="submit()" method="POST">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="control-label" for="name">Name</label>
+            <input value="" name="name" id="name" type="text" ng-model="name" placeholder="" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-right">
+          <input class="btn btn-success btn-sm" type="submit" id="submit" value="" />
+          <a ng-if="currentDeveloper.id" ng-click="delete(currentDeveloper.id)" class="btn btn-danger btn-sm">Delete</a>
+          <a ng-if="currentDeveloper.id" ng-click="cancel()" class="btn btn-default btn-sm">Cancel</a>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
